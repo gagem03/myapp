@@ -1,3 +1,5 @@
+// If anyone else submits this with this comment here idk how they got ahold of this file
+// they never got my permission
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,44 +11,40 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomeScreen(),
+    return MaterialApp(
+      home: HomePage()
     );
   }
 }
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            FlutterLogo(size: 28),
-            Text('Flutter App'),
-            Icon(Icons.notifications_none_outlined),
-          ]
-        ),
-        backgroundColor: Colors.red
-        ),
-        body: Container(
-          height: 500,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(23),
-            color: Colors.blue,
-          ),
-        ),
-        bottomNavigationBar: BottomAppBar(
-          color: Colors.red,
-        ),
-      );
+        backgroundColor: Colors.blue,
+        title: Row(children: [
+          FlutterLogo(size: 45),
+        ])
+      ),
+      drawer: Drawer(),
+      body: ListView(
+        scrollDirection: Axis.vertical,
+        children: <Widget>[
+          Image.asset('assets/image1.jpg'),
+          Image.asset('assets/image2.jpg'),
+          Image.asset('assets/image3.jpg'),
+          Image.asset('assets/image4.jpg'),
+          Image.asset('assets/image5.jpg'),
+        ]
+      ),
+    );
   }
 }
