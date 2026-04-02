@@ -1,6 +1,7 @@
 // If anyone else submits this with this comment here idk how they got ahold of this file
 // they never got my permission
 import 'package:flutter/material.dart';
+import 'package:myapp/utils/image_generator.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,9 +12,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: HomePage()
-    );
+    return MaterialApp(home: HomePage());
   }
 }
 
@@ -30,20 +29,14 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
-        title: Row(children: [
-          FlutterLogo(size: 45),
-        ])
+        title: Row(children: [FlutterLogo(size: 45)]),
       ),
       drawer: Drawer(),
-      body: ListView(
-        scrollDirection: Axis.vertical,
-        children: <Widget>[
-          Image.asset('assets/image1.jpg'),
-          Image.asset('assets/image2.jpg'),
-          Image.asset('assets/image3.jpg'),
-          Image.asset('assets/image4.jpg'),
-          Image.asset('assets/image5.jpg'),
-        ]
+      body: ListView.builder(
+        itemCount: imageCards.length,
+        itemBuilder: (context, index) {
+          return imageCards[index];
+        },
       ),
     );
   }
