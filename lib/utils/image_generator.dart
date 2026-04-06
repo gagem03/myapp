@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 List<String> generate() {
   List<String> images = [];
 
-  for (var i = 0; i < images.length; i++) {
+  for (var i = 1; i < 6; i++) {
     images.add('assets/image$i.jpg');
   }
 
